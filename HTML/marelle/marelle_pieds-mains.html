@@ -15,15 +15,27 @@
 
 <body>
     <a-scene>
-        <a-sky src="./assets/images/sky.jpg"></a-sky>
+        <a-sky src="./images/sky.jpg"></a-sky>
 
         <a-assets>
             <a-asset-item id="leftfoot" src="../modeles/piedgauche.glb"></a-asset-item>
             <a-asset-item id="rightfoot" src="../modeles/pieddroite.glb"></a-asset-item>
+            <img id="stonemap" src="../modeles/TexturesCom_Rock_CaveWall_B_2.5x2.5_1K_normal.png" ></img>
+            <img id="stonetexture" src="../modeles/132392_header_small.jpg" ></img>
         </a-assets>
 
         <!-- INSEREZ VOTRE ENVIRONNEMENT, CI-DESSOUS ... -->
-        <a-box position="0.9 -0.5 0" width="0.2" depth="0.2"></a-box>
+        <a-box position="0.9 -0.5 0" 
+                width="0.2" 
+                depth="0.2"
+                src="#stonetexture"
+                normal-map="#stonemap"
+                normal-texture-repeat="2 5"
+                normal-scale="5 10"></a-box>
+        <script>
+            const box = document.createElement("a-box");
+            box.setAttribute("position", 1, 0, 2);
+        </script>
         <a-box position="-0.2 -0.5 -0.7" width="0.2" depth="0.2"></a-box>
         <a-box position="-1 -0.5 -1.5" width="0.2" depth="0.2"></a-box>
         <a-box position="-1.9 -0.5 -2.8" width="0.2" depth="0.2"></a-box>
