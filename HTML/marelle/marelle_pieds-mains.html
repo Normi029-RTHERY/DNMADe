@@ -2,116 +2,109 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>
-    <script src="myutils.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
-    <script src="./particules/particle.js"></script>
-    <script src="./particules/sketch.js"></script>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>
+        <script src="myutils.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+        <script src="./particules/particle.js"></script>
+        <script src="./particules/sketch.js"></script>
+    </head>
 
-<body>
-    <a-scene>
-        <a-sky src="./images/sky.jpg"></a-sky>
+    <body>
+        <a-scene>
+            <a-sky src="./images/sky.jpg"></a-sky>
 
-        <a-assets>
-            <a-asset-item id="leftfoot" src="../modeles/piedgauche.glb"></a-asset-item>
-            <a-asset-item id="rightfoot" src="../modeles/pieddroite.glb"></a-asset-item>
-            <img id="stonemap" src="../modeles/TexturesCom_Rock_CaveWall_B_2.5x2.5_1K_normal.png" ></img>
-            <img id="stonetexture" src="../modeles/132392_header_small.jpg" ></img>
-        </a-assets>
+            <a-assets>
+                <a-asset-item id="leftfoot" src="../modeles/piedgauche.glb"></a-asset-item>
+                <a-asset-item id="rightfoot" src="../modeles/pieddroite.glb"></a-asset-item>
+                <img id="stonemap" src="../modeles/TexturesCom_Rock_CaveWall_B_2.5x2.5_1K_normal.png"></img>
+                <img id="stonetexture" src="../modeles/132392_header_small.jpg"></img>
+                <a-mixin id="top_spike" geometry="primitive: box; height: 1; depth: 0.2; width: 0.2 src:#stonetexture" material="src:#stonetexture; repeat:0.1 0.5;"></a-mixin>
+                <a-mixin id="middle_spike" geometry="primitive: box; height: 1; depth: 0.1; width: 0.1 src:#stonetexture" material="src:#stonetexture; repeat:0.1 0.5;"></a-mixin>
+                <a-mixin id="bottom_spike" geometry="primitive: box; height: 1; depth: 0.05; width: 0.05 src:#stonetexture" material="src:#stonetexture; repeat:0.1 0.5;"></a-mixin>
+            </a-assets>
 
-        <!-- INSEREZ VOTRE ENVIRONNEMENT, CI-DESSOUS ... -->
-        <a-box position="0.9 -0.5 0" 
-                width="0.2" 
-                depth="0.2"
-                src="#stonetexture"
-                normal-map="#stonemap"
-                normal-texture-repeat="2 5"
-                normal-scale="5 10"></a-box>
-        <script>
-            const box = document.createElement("a-box");
-            box.setAttribute("position", 1, 0, 2);
-        </script>
-        <a-box position="-0.2 -0.5 -0.7" width="0.2" depth="0.2"></a-box>
-        <a-box position="-1 -0.5 -1.5" width="0.2" depth="0.2"></a-box>
-        <a-box position="-1.9 -0.5 -2.8" width="0.2" depth="0.2"></a-box>
-        <a-box position="-1.1 -0.5 -3.9" width="0.2" depth="0.2"></a-box>
-        <a-box position="-0.2 -0.5 -3.6" width="0.2" depth="0.2"></a-box>
-        <a-box position="1.4 -0.5 -3.4" width="0.2" depth="0.2"></a-box>
-        <a-box position="2 -0.5 -2.1" width="0.2" depth="0.2"></a-box>
+            <!-- INSEREZ VOTRE ENVIRONNEMENT, CI-DESSOUS ... -->
+            <a-entity mixin="top_spike" position="0.9 -0.5 0"></a-entity>
+            <a-entity mixin="top_spike" position="-0.2 -0.5 -0.7"></a-entity>
+            <a-entity mixin="top_spike" position="-1 -0.5 -1.5"></a-entity>
+            <a-entity mixin="top_spike" position="-1.9 -0.5 -2.8"></a-entity>
+            <a-entity mixin="top_spike" position="-1.1 -0.5 -3.9"></a-entity>
+            <a-entity mixin="top_spike" position="-0.2 -0.5 -3.6"></a-entity>
+            <a-entity mixin="top_spike" position="1.4 -0.5 -3.4"></a-entity>
+            <a-entity mixin="top_spike" position="2 -0.5 -2.1"></a-entity>
 
-        <a-box position="0.9 -1.5 0" width="0.1" depth="0.1"></a-box>
-        <a-box position="-0.2 -1.5 -0.7" width="0.1" depth="0.1"></a-box>
-        <a-box position="-1 -1.5 -1.5" width="0.1" depth="0.1"></a-box>
-        <a-box position="-1.9 -1.5 -2.8" width="0.1" depth="0.1"></a-box>
-        <a-box position="-1.1 -1.5 -3.9" width="0.1" depth="0.1"></a-box>
-        <a-box position="-0.2 -1.5 -3.6" width="0.1" depth="0.1"></a-box>
-        <a-box position="1.4 -1.5 -3.4" width="0.1" depth="0.1"></a-box>
-        <a-box position="2 -1.5 -2.1" width="0.1" depth="0.1"></a-box>
+            <a-entity mixin="middle_spike" position="0.9 -1.5 0"></a-entity>
+            <a-entity mixin="middle_spike" position="-0.2 -1.5 -0.7"></a-entity>
+            <a-entity mixin="middle_spike" position="-1 -1.5 -1.5"></a-entity>
+            <a-entity mixin="middle_spike" position="-1.9 -1.5 -2.8"></a-entity>
+            <a-entity mixin="middle_spike" position="-1.1 -1.5 -3.9"></a-entity>
+            <a-entity mixin="middle_spike" position="-0.2 -1.5 -3.6"></a-entity>
+            <a-entity mixin="middle_spike" position="1.4 -1.5 -3.4"></a-entity>
+            <a-entity mixin="middle_spike" position="2 -1.5 -2.1"></a-entity>
 
-        <a-box position="0.9 -2.5 0" width="0.05" depth="0.05"></a-box>
-        <a-box position="-0.2 -2.5 -0.7" width="0.05" depth="0.05"></a-box>
-        <a-box position="-1 -2.5 -1.5" width="0.05" depth="0.05"></a-box>
-        <a-box position="-1.9 -2.5 -2.8" width="0.05" depth="0.05"></a-box>
-        <a-box position="-1.1 -2.5 -3.9" width="0.05" depth="0.05"></a-box>
-        <a-box position="-0.2 -2.5 -3.6" width="0.05" depth="0.05"></a-box>
-        <a-box position="1.4 -2.5 -3.4" width="0.05" depth="0.05"></a-box>
-        <a-box position="2 -2.5 -2.1" width="0.05" depth="0.05"></a-box>
+            <a-entity mixin="bottom_spike" position="0.9 -2.5 0"></a-entity>
+            <a-entity mixin="bottom_spike" position="-0.2 -2.5 -0.7"></a-entity>
+            <a-entity mixin="bottom_spike" position="-1 -2.5 -1.5"></a-entity>
+            <a-entity mixin="bottom_spike" position="-1.9 -2.5 -2.8"></a-entity>
+            <a-entity mixin="bottom_spike" position="-1.1 -2.5 -3.9"></a-entity>
+            <a-entity mixin="bottom_spike" position="-0.2 -2.5 -3.6"></a-entity>
+            <a-entity mixin="bottom_spike" position="1.4 -2.5 -3.4"></a-entity>
+            <a-entity mixin="bottom_spike" position="2 -2.5 -2.1"></a-entity>
 
-        <a-box position="5 -2 3" width="0.1" depth="0.1"></a-box>
-        <a-box position="-6 2 -7" width="0.1" depth="0.1"></a-box>
-        <a-box position="-4 -1 5" width="0.1" depth="0.1"></a-box>
-        <a-box position="3 3 -4" width="0.1" depth="0.1"></a-box>
-        <a-box position="-2 -1 -8" width="0.1" depth="0.1"></a-box>
-        <a-box position="-3 0.5 2" width="0.1" depth="0.1"></a-box>
-        <a-box position="3.4 1.2 -3.8" width="0.1" depth="0.1"></a-box>
-        <a-box position="-8 1.5 -1.2" width="0.1" depth="0.1"></a-box>
+            <a-entity mixin="middle_spike" position="5 -2 3"></a-entity>
+            <a-entity mixin="middle_spike" position="-6 2 -7"></a-entity>
+            <a-entity mixin="middle_spike" position="-4 -1 5"></a-entity>
+            <a-entity mixin="middle_spike" position="3 3 -4"></a-entity>
+            <a-entity mixin="middle_spike" position="-2 -1 -8"></a-entity>
+            <a-entity mixin="middle_spike" position="-3 0.5 2"></a-entity>
+            <a-entity mixin="middle_spike" position="3.4 1.2 -3.8"></a-entity>
+            <a-entity mixin="middle_spike" position="-8 1.5 -1.2"></a-entity>
 
-        <a-box position="-4.6 -3 2" width="0.05" depth="0.05"></a-box>
-        <a-box position="-3.4 -4.2 -5s.4" width="0.05" depth="0.05"></a-box>
-        <a-box position="4 -2 -3.5" width="0.05" depth="0.05"></a-box>
-        <a-box position="0.3 1.8 -7" width="0.05" depth="0.05"></a-box>
-        <a-box position="6 1 1.1" width="0.05" depth="0.05"></a-box>
-        <a-box position="1.5 1.7 2.2" width="0.05" depth="0.05"></a-box>
-        <a-box position="3.4 .2 -3.8" width="0.05" depth="0.05"></a-box>
-        <a-box position="-3 -0.5 2" width="0.05" depth="0.05"></a-box>
+            <a-entity mixin="bottom_spike" position="-4.6 -3 2"></a-entity>
+            <a-entity mixin="bottom_spike" position="-3.4 -4.2 -5s.4"></a-entity>
+            <a-entity mixin="bottom_spike" position="4 -2 -3.5"></a-entity>
+            <a-entity mixin="bottom_spike" position="0.3 1.8 -7"></a-entity>
+            <a-entity mixin="bottom_spike" position="6 1 1.1"></a-entity>
+            <a-entity mixin="bottom_spike" position="1.5 1.7 2.2"></a-entity>
+            <a-entity mixin="bottom_spike" position="3.4 .2 -3.8"></a-entity>
+            <a-entity mixin="bottom_spike" position="-3 -0.5 2"></a-entity>
 
-        <!-- ... JUSQUE CI-DESSUS -->
+            <!-- ... JUSQUE CI-DESSUS -->
 
-        <!-- PLAYER -->
-        <a-entity id="cameraRig">
-            
-            <!-- TETE -->
-            <a-entity id="tete" camera position="0 1.60 0" 
-                    look-controls wasd-controls>
+            <!-- PLAYER -->
+            <a-entity id="cameraRig">
+                
+                <!-- TETE -->
+                <a-entity id="tete" camera position="0 1.60 0" 
+                        look-controls wasd-controls>
+                </a-entity>
+
+                <!-- LEFT HAND -->
+                <a-entity id="maingauche" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc">
+                </a-entity>
+
+                <!-- RIGHT HAND -->
+                <a-entity id="maindroite" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc">
+                </a-entity>
+
+                <!-- PIEDS -->
+                <a-entity id="piedgauche" gltf-model="#leftfoot" 
+                        rotation="-90 0 180"
+                        follow-head-rotation="trace: false" follow-hand-position>
+                </a-entity>
+                <a-entity id="pieddroite" gltf-model="#rightfoot" 
+                        rotation="-90 0 180"
+                        follow-head-rotation="trace: false" follow-hand-position>
+                </a-entity>
+
             </a-entity>
 
-            <!-- LEFT HAND -->
-            <a-entity id="maingauche" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc">
-            </a-entity>
-
-            <!-- RIGHT HAND -->
-            <a-entity id="maindroite" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc">
-            </a-entity>
-
-            <!-- PIEDS -->
-            <a-entity id="piedgauche" gltf-model="#leftfoot" 
-                      rotation="-90 0 180"
-                      follow-head-rotation="trace: false" follow-hand-position>
-            </a-entity>
-            <a-entity id="pieddroite" gltf-model="#rightfoot" 
-                      rotation="-90 0 180"
-                      follow-head-rotation="trace: false" follow-hand-position>
-            </a-entity>
-
-        </a-entity>
-
-    </a-scene>
-
-</body>
-
+        </a-scene>
+    
+    </body>
+    <script src="./script.js"></script>
 </html>
