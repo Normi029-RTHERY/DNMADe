@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #152b4f" >
+      <a-assets>
+        <a-asset-item id="agathe-obj" src="./exemples/agathe.obj"></a-asset-item>
+        <a-asset-item id="agathe-mtl" src="./exemples/agathe.mtl"></a-asset-item>
+      </a-assets>
+
+      <a-entity obj-model="obj: #agathe-obj; mtl: #agathe-mtl" position="0 0 -4" scale="20 20 20" color="#F00"></a-entity>
+
+      <a-light position="2,2,2"></a-light>
+
+    </a-scene>
+  </body>
+</html>
