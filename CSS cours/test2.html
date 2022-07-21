@@ -1,16 +1,37 @@
 <html>
-  <head>
-    <style>
-      
-    </style>
-  </head>
 
-  <body>
-    <div id="global">
-      <div id="div1"></div>
-      <div id="div2"></div>
-      <div id="div3"></div>
+<head>
+  <style>
+    #container {
+      background-color: gray;
+      display: flex;
+      flex-flow: row wrap;
+      border: dotted 1px red;
+      margin: 5px;
+      align-items: stretch;
+    }
 
+    #container div {
+      background-color: silver;
+      margin: 10px;
+      flex: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div>ONE</div>
+    <div>TWO</div>
+    <div>THREE
+      <br>sur
+      <br>plusieurs
+      <br>lignes
     </div>
-  </body>
+    <div>FOUR</div>
+    <div>FIVE</div>
+    <div>SIX</div>
+  </div>
+</body>
+
 </html>
