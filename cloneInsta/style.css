@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    text-decoration: none;
 }
 
 :root {
@@ -27,10 +28,9 @@ body {
     position: fixed;
     left: 0px;
     min-width: 13rem;
-    width: 18vw;
+    width: fit-content;
     height: 100%;
     padding: 1rem;
-    padding-top: 2rem;
 }
 
 .nav-list {
@@ -91,36 +91,59 @@ main {
 .centerbox {
     /* background-color: brown; */
     position: relative;
-    padding: 1rem;
     height: 100%;
     width: fit-content;
 }
 
 .stories {
-    /* background-color: yellowgreen; */
-    width: auto;
+    background-color: yellowgreen;
     height: 5rem;
     padding: 0.3rem;
+    margin-bottom: 0.5rem;
 }
 
 .story {
     border-radius: 50%;
     width: 50px;
-    background: #000;
+    height: 50px;
+    background-color: #000;
 }
 
 .feed {
     background-color: steelblue;
-    padding: 0.3rem;
     width: fit-content;
 }
 
 .post {
-    background-color: antiquewhite;
+    background-color: rgba(0, 0, 0, 10%);
     aspect-ratio: 4/4.5;
     width: 50vw;
     max-width: 28rem;
-    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 0.1rem #111 solid;
+}
+
+.auth-box,
+.auth-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.auth-box {
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.auth-info h2 {
+    margin-left: 1rem;
+}
+
+.auth-ico {
+    background-image: url(./assets/img/shrek.jpeg);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
 }
 
 .leftbox {
